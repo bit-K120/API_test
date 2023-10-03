@@ -14,7 +14,7 @@ def search_info_url(id_30):
     for id in id_30:
         response = requests.get(f"https://hacker-news.firebaseio.com/v0/item/{id}.json?print=pretty")
         info = response.json()
-        if info["url"] is None:
+        if info.get("url") is None:
             last_30_list["title"] = info["title"]
             last_30_list["link"] = "None"
             continue
